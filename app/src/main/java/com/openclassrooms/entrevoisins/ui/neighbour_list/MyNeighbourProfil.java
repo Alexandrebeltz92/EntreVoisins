@@ -22,7 +22,7 @@ public class MyNeighbourProfil extends AppCompatActivity {
         setContentView(R.layout.activity_my_neighbour_profil);
 
         mProfilPitcure = (ImageView) findViewById(R.id.profil_picture);
-        mContactProfil = (TextView) findViewById(R.id.contact_profil);
+        mContactProfil = (TextView) findViewById(R.id.name_profil);
         mAboutProfil = (TextView) findViewById(R.id.about_profil);
 
         Neighbour neighbour = getIntent().getExtras().getParcelable("myNeighbour");
