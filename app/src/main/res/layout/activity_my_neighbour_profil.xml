@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    android:orientation="vertical"
+    tools:context=".ui.neighbour_list.MyNeighbourProfil">
+
+    <ImageView
+        android:id="@+id/profil_picture"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#f300"
+        tools:ignore="MissingConstraints">
+    </ImageView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:background="@drawable/ic_baseline_arrow_back_24">
+    </Button>
+
+
+</android.support.constraint.ConstraintLayout>
+
