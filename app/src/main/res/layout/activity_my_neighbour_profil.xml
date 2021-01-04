@@ -19,6 +19,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+        android:id="@+id/button_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -113,7 +114,7 @@
         app:layout_constraintTop_toTopOf="@id/background_about" />
 
     <TextView
-        android:id="@+id/about_corps"
+        android:id="@+id/about_info"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="35dp"
@@ -122,3 +123,5 @@
         android:text="MORE TEXT"
         android:textEditNoPasteWindowLayout="@id/background_contact"
         app:layout_constraintTop_toBottomOf="@id/about_title" />
+
+</android.support.constraint.ConstraintLayout>
