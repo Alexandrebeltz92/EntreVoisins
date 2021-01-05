@@ -1,5 +1,7 @@
 package com.openclassrooms.entrevoisins.service;
 
+import android.view.View;
+
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -40,4 +42,10 @@ public class NeighbourServiceTest {
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
+    // @Test
+    // public void getNeighbourProfil() throws Exception {
+    //    View.OnClickListener
+    //
+    //  }
 }

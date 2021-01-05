@@ -52,7 +52,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 Intent neighbourProfilIntent = new Intent(v.getContext(),MyNeighbourProfil.class);
                 neighbourProfilIntent.putExtra("myNeighbour", neighbour);
                 ((Activity) v.getContext()).startActivity(neighbourProfilIntent);
-            }
+                }
         });
 
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
