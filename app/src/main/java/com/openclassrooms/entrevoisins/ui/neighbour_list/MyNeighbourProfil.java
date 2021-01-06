@@ -41,7 +41,7 @@ public class MyNeighbourProfil extends AppCompatActivity {
         }
 
         mProfilPitcure = (ImageView) findViewById(R.id.profil_picture);
-        mButtonPreview = (Button) findViewById(R.id.button_preview);
+
         mProfilName = (TextView) findViewById(R.id.profil_name);
         mProfilName2 = (TextView) findViewById(R.id.profil_name_2);
         mLocalisationContact = (TextView) findViewById(R.id.localisation_contact);
