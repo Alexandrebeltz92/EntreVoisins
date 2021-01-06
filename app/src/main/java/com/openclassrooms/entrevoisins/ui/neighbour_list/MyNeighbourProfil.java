@@ -36,7 +36,9 @@ public class MyNeighbourProfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_neighbour_profil);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         mProfilPitcure = (ImageView) findViewById(R.id.profil_picture);
         mButtonPreview = (Button) findViewById(R.id.button_preview);
