@@ -1,10 +1,12 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +26,7 @@ import butterknife.OnClick;
 public class MyNeighbourProfil extends AppCompatActivity {
 
     private ImageView mProfilPitcure;
-    private Button mButtonPreview;
+    private Button mButtonReturn;
     private TextView mProfilName;
     private TextView mProfilName2;
     private TextView mLocalisationContact;
@@ -41,7 +43,7 @@ public class MyNeighbourProfil extends AppCompatActivity {
         }
 
         mProfilPitcure = (ImageView) findViewById(R.id.profil_picture);
-        mButtonPreview = (Button) findViewById(R.id.button_preview);
+        Button mButtonReturn = (Button) findViewById(R.id.button_return);
         mProfilName = (TextView) findViewById(R.id.profil_name);
         mProfilName2 = (TextView) findViewById(R.id.profil_name_2);
         mLocalisationContact = (TextView) findViewById(R.id.localisation_contact);
@@ -60,6 +62,13 @@ public class MyNeighbourProfil extends AppCompatActivity {
         mLocalisationContact.setText(neighbour.getAddress());
         mNumberContact.setText(neighbour.getPhoneNumber());
         mAboutInfo.setText(neighbour.getAboutMe());
+
+        mButtonReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MyNeighbourProfil.this, ListNeighbourActivity.class));
+            }
+        });
     }
 
 }
