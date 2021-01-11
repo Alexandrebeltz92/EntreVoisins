@@ -3,8 +3,10 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +32,8 @@ public class MyNeighbourProfil extends AppCompatActivity {
         private TextView mNumberContact;
         private TextView mSocialMedia;
         private TextView mAboutInfo;
+        private TextView mAboutTitle;
+        private FloatingActionButton mFavButton;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class MyNeighbourProfil extends AppCompatActivity {
             mNumberContact = (TextView) findViewById(R.id.number_contact);
             mSocialMedia = (TextView) findViewById(R.id.social_media);
             mAboutInfo = (TextView) findViewById(R.id.about_info);
+            mAboutTitle = (TextView) findViewById(R.id.about_title);
+            mFavButton = findViewById(R.id.fav_button);
+
 
             Neighbour neighbour = getIntent().getExtras().getParcelable("myNeighbour");
 
@@ -57,6 +64,14 @@ public class MyNeighbourProfil extends AppCompatActivity {
             mNumberContact.setText(neighbour.getPhoneNumber());
             mAboutInfo.setText(neighbour.getAboutMe());
             mSocialMedia.setText("www.facebook/" + neighbour.getName());
+            mAboutTitle.setText("A propos de moi");
+
+           /** mFavButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    isFavorite
+                }
+            }); */
         }
 
     }

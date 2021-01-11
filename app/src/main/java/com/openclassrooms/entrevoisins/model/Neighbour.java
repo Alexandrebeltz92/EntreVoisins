@@ -29,8 +29,7 @@ public class Neighbour implements Parcelable {
     private String aboutMe;
 
     /** Is favorite */
-    private Boolean isFavorite;
-
+    /** private Boolean isFavorite; */
     /**
      * Constructor
      * @param id
@@ -38,14 +37,14 @@ public class Neighbour implements Parcelable {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe, Boolean isFavorite) {
+                     String phoneNumber, String aboutMe) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
-        this.isFavorite = isFavorite;
+        /**this.isFavorite = isFavorite; */
     }
 
     protected Neighbour(Parcel in) {

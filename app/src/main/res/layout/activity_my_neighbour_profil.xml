@@ -18,7 +18,9 @@
         android:gravity="center_vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="false"/>
 
     <TextView
         android:id="@+id/profil_name"
@@ -28,12 +30,14 @@
         app:layout_constraintLeft_toLeftOf="@id/profil_picture"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Hello my name is alex" />
+        android:text="Hello my name is alex"
+        android:textColor="#fff"
+        android:textSize="35sp"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/background_contact"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         app:layout_constraintTop_toBottomOf="@id/profil_picture"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -50,16 +54,17 @@
             <TextView
                 android:id="@+id/profil_name_2"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
-                android:text="NAME" />
+                android:text="NAME"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/localisation_contact"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
@@ -69,7 +74,7 @@
             <TextView
                 android:id="@+id/number_contact"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
@@ -79,7 +84,7 @@
             <TextView
                 android:id="@+id/social_media"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="10dp"
@@ -108,18 +113,19 @@
             <TextView
                 android:id="@+id/about_title"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="10dp"
                 android:text="About me "
                 android:textEditNoPasteWindowLayout="@id/background_contact"
-                app:layout_constraintTop_toTopOf="@id/background_about" />
+                app:layout_constraintTop_toTopOf="@id/background_about"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/about_info"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
@@ -138,7 +144,10 @@
         android:layout_marginRight="25dp"
         app:layout_constraintEnd_toEndOf="@id/profil_picture"
         app:layout_constraintTop_toBottomOf="@id/profil_name"
-        android:background="@android:drawable/star_big_off" />
+        android:src="@android:drawable/star_big_on"
+        android:tint="#FFFF00"
+        android:backgroundTint="#FFFF"
+        android:clickable="true"/>
 
 </android.support.constraint.ConstraintLayout>
 
