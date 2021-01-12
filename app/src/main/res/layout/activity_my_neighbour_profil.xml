@@ -58,9 +58,15 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
-                android:text="NAME"
+                android:text="name"
                 android:textStyle="bold"
                 android:textSize="25sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#B9B9B9" />
 
             <TextView
                 android:id="@+id/localisation_contact"
@@ -69,8 +75,9 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="15dp"
-                android:text="PLACE TO BE "
+                android:text=" place to be "
                 android:layout_gravity="center_vertical"
+                android:drawablePadding="15dip"
                 android:drawableLeft="@drawable/ic_baseline_place_24"
                 android:drawableTint="@color/colorAccent"
                 />
@@ -82,8 +89,9 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="15dp"
-                android:text="NUMBER "
+                android:text="hello"
                 android:layout_gravity="center_vertical"
+                android:drawablePadding="15dip"
                 android:drawableLeft="@drawable/ic_baseline_phone_24"
                 android:drawableTint="@color/colorAccent"
                 />
@@ -97,6 +105,7 @@
                 android:layout_marginTop="15dp"
                 android:text="social media "
                 android:layout_gravity="center_vertical"
+                android:drawablePadding="15dip"
                 android:drawableLeft="@drawable/ic_baseline_language_24"
                 android:drawableTint="@color/colorAccent"
                 />
@@ -132,6 +141,12 @@
                 app:layout_constraintTop_toTopOf="@id/background_about"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#B9B9B9" />
 
             <TextView
                 android:id="@+id/about_info"
