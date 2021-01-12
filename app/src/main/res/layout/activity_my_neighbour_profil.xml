@@ -68,10 +68,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:text="PLACE TO BE "
                 android:layout_gravity="center_vertical"
-                android:drawableLeft="@android:drawable/ic_media_ff"
+                android:drawableLeft="@drawable/ic_baseline_place_24"
                 android:drawableTint="@color/colorAccent"
                 />
 
@@ -81,10 +81,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:text="NUMBER "
                 android:layout_gravity="center_vertical"
-                android:drawableLeft="@android:drawable/ic_menu_call"
+                android:drawableLeft="@drawable/ic_baseline_phone_24"
                 android:drawableTint="@color/colorAccent"
                 />
 
@@ -94,10 +94,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:text="social media "
                 android:layout_gravity="center_vertical"
-                android:drawableLeft="@android:drawable/ic_menu_mapmode"
+                android:drawableLeft="@drawable/ic_baseline_language_24"
                 android:drawableTint="@color/colorAccent"
                 />
 
