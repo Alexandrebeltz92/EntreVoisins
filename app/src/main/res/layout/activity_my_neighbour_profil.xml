@@ -71,7 +71,8 @@
                 android:layout_marginTop="10dp"
                 android:text="PLACE TO BE "
                 android:layout_gravity="center_vertical"
-                android:drawableLeft="@android:drawable/ic_menu_mylocation"
+                android:drawableLeft="@android:drawable/ic_media_ff"
+                android:drawableTint="@color/colorAccent"
                 />
 
             <TextView
@@ -83,6 +84,8 @@
                 android:layout_marginTop="10dp"
                 android:text="NUMBER "
                 android:layout_gravity="center_vertical"
+                android:drawableLeft="@android:drawable/ic_menu_call"
+                android:drawableTint="@color/colorAccent"
                 />
 
             <TextView
@@ -93,6 +96,9 @@
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="10dp"
                 android:text="social media "
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@android:drawable/ic_menu_mapmode"
+                android:drawableTint="@color/colorAccent"
                 />
 
         </android.support.v7.widget.LinearLayoutCompat>
