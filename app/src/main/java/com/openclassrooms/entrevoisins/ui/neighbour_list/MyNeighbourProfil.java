@@ -3,9 +3,11 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,11 +44,15 @@ public class MyNeighbourProfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_neighbour_profil);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbarlayout);
+
         mProfilPitcure = (ImageView) findViewById(R.id.profil_picture);
-        mProfilName = (TextView) findViewById(R.id.profil_name);
         mProfilName2 = (TextView) findViewById(R.id.profil_name_2);
         mLocalisationContact = (TextView) findViewById(R.id.localisation_contact);
         mNumberContact = (TextView) findViewById(R.id.number_contact);
@@ -62,7 +68,7 @@ public class MyNeighbourProfil extends AppCompatActivity {
                 .load(neighbour.getAvatarUrl())
                 .into(mProfilPitcure);
 
-        mProfilName.setText(neighbour.getName());
+        toolBarLayout.setTitle(neighbour.getName());
         mProfilName2.setText(neighbour.getName());
         mLocalisationContact.setText(neighbour.getAddress());
         mNumberContact.setText(neighbour.getPhoneNumber());

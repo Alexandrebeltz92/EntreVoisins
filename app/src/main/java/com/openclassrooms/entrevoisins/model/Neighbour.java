@@ -28,7 +28,7 @@ public class Neighbour implements Parcelable {
     /** About me */
     private String aboutMe;
 
-    // par defaut, un voisin n'est pas en favoris. (on le passe comme favoris dans la page de detail)
+    /** Is favorite */
     private boolean favorite = false;
 
 
