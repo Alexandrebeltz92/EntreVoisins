@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.service;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -12,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
+import java.util.jar.Attributes;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -44,16 +46,15 @@ public class NeighbourServiceTest {
     }
 
     // @Test
-    // public void getNeighbourProfil() throws Exception {
+    // public void getNeighbourProfil() {
     //    View.OnClickListener
     //
     //  }
 
-    // @Test
-    // public void getNeighbourProfil() throws Exception {
-    //    View.OnClickListener
-    //
-    //  }
+     @Test
+     public void getNameNeighbour() {
+
+      }
 
     // @Test
     // public void addNeighbourWithSucess() {
