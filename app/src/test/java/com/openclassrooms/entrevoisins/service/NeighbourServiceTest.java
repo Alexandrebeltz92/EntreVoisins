@@ -48,4 +48,17 @@ public class NeighbourServiceTest {
     //    View.OnClickListener
     //
     //  }
+
+    // @Test
+    // public void getNeighbourProfil() throws Exception {
+    //    View.OnClickListener
+    //
+    //  }
+
+    // @Test
+    // public void addNeighbourWithSucess() {
+    //
+    //
+    //
+
 }

@@ -30,7 +30,6 @@ import butterknife.OnClick;
 public class MyNeighbourProfil extends AppCompatActivity {
 
     private ImageView mProfilPitcure;
-    private TextView mProfilName;
     private TextView mProfilName2;
     private TextView mLocalisationContact;
     private TextView mNumberContact;
@@ -51,6 +50,7 @@ public class MyNeighbourProfil extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbarlayout);
+
 
         mProfilPitcure = (ImageView) findViewById(R.id.profil_picture);
         mProfilName2 = (TextView) findViewById(R.id.profil_name_2);
