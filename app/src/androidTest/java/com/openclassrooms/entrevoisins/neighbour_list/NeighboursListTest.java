@@ -1,6 +1,9 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
+import android.support.design.snackbar.ContentViewCallback;
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -8,6 +11,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourProfil;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.junit.Before;
@@ -15,10 +19,16 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -38,6 +48,8 @@ public class NeighboursListTest {
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityRule =
             new ActivityTestRule(ListNeighbourActivity.class);
+    public ActivityTestRule<MyNeighbourProfil> mNeighbourProfilRule =
+            new ActivityTestRule<>(MyNeighbourProfil.class);
 
     @Before
     public void setUp() {
@@ -68,4 +80,29 @@ public class NeighboursListTest {
         // Then : the number of element is 11
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
+
+    /**
+     * When we click an item, the neighbour detail is shown
+     */
+
+    @Test
+    public void mNeighboursList_openNeighbourProfil() {
+        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(ViewMatchers.withId(R.id.list_neighbours))
+                .perform((RecyclerViewActions.actionOnItemAtPosition(1,click())));
+        assertThat(intent).hasCom;
+    //   onView(ViewMatchers.withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(1), click());
+        onView(withId(R.id.list_neighbours))
+                .perform(click())
+                .check((ViewAssertion) isDisplayed());
+    }
+
+
+  //  @Test
+   //  public void mNeighboursList_openNeighbourProfil() {
+        // Given : We click on the first list element
+    //    onView(ViewMatchers.withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+        //
+   //     onView(ViewMatchers.withId(R.id.my_neighbour_profil)).check(matches());
+   // }
 }

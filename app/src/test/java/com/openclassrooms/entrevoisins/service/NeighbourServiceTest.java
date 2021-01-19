@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.service;
 
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.jar.Attributes;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -38,28 +40,13 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
+    // Must add something to test the list after deleting one person.
+    // Like List<Neighbour> equals 0 after adding one and deleting it.
     @Test
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
-
-    // @Test
-    // public void getNeighbourProfil() {
-    //    View.OnClickListener
-    //
-    //  }
-
-     @Test
-     public void getNameNeighbour() {
-
-      }
-
-    // @Test
-    // public void addNeighbourWithSucess() {
-    //
-    //
-    //
 
 }

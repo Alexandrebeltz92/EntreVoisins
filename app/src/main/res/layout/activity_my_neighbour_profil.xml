@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#D3D3D3"
-    tools:context=".ui.neighbour_list.MyNeighbourProfil">
+    tools:context=".ui.neighbour_list.MyNeighbourProfil"
+    android:id="@+id/my_neighbour_profil">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
