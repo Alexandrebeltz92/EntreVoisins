@@ -50,12 +50,6 @@ public class NeighboursListTest {
     public ActivityTestRule<ListNeighbourActivity> mActivityRule =
             new ActivityTestRule(ListNeighbourActivity.class);
 
-    //public IntentsTestRule<ListNeighbourActivity> intentsTestRule =
-    //        new IntentsTestRule<>(ListNeighbourActivity.class);
-    //
-    //public IntentsTestRule<MyNeighbourProfil> mIntentsTestRule =
-    //       new IntentsTestRule<>(MyNeighbourProfil.class);
-
     @Before
     public void setUp() {
         mActivity = mActivityRule.getActivity();
@@ -85,36 +79,4 @@ public class NeighboursListTest {
         // Then : the number of element is 11
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
-
-    /**
-     * When we click an item, the neighbour detail is shown
-     */
-
-    //@Test
-    //public void mNeighboursList_openNeighbourProfil() {
-    //    onView(withId(R.id.item_list_name))
-    //            .perform(RecyclerViewActions.actionOnItemAtPosition(1,click()))
-    //            .check(matches(isDisplayed()));
-//
-    //    onData(withId(R.id.item_image))
-    //            .inAdapterView(withId(R.id.grid_adapter_id))
-    //            .atPosition(0)
-    //            .perform(click());
-
-
-    //   onView(ViewMatchers.withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(1), click());
-    //   onView(withId(R.id.list_neighbours))
-    //           .perform(click())
-    //           .check((ViewAssertion) isDisplayed());
-    //}
-
-
-
-  //  @Test
-   //  public void mNeighboursList_openNeighbourProfil() {
-        // Given : We click on the first list element
-    //    onView(ViewMatchers.withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
-        //
-   //     onView(ViewMatchers.withId(R.id.my_neighbour_profil)).check(matches());
-   // }
 }

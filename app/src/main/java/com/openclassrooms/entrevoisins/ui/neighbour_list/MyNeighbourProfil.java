@@ -61,40 +61,42 @@ public class MyNeighbourProfil extends AppCompatActivity {
         mAboutTitle = (TextView) findViewById(R.id.about_title);
         mFavButton = findViewById(R.id.fav_button);
 
+        Neighbour neighbour;
+        if (getIntent().getExtras() != null) {
+            neighbour = getIntent().getExtras().getParcelable("myNeighbour");
 
-        Neighbour neighbour = getIntent().getExtras().getParcelable("myNeighbour");
+            Glide.with(this)
+                    .load(neighbour.getAvatarUrl())
+                    .into(mProfilPitcure);
 
-        Glide.with(this)
-                .load(neighbour.getAvatarUrl())
-                .into(mProfilPitcure);
+            toolBarLayout.setTitle(neighbour.getName());
+            mProfilName2.setText(neighbour.getName());
+            mLocalisationContact.setText(neighbour.getAddress());
+            mNumberContact.setText(neighbour.getPhoneNumber());
+            mAboutInfo.setText(neighbour.getAboutMe());
+            mSocialMedia.setText("www.facebook/" + neighbour.getName());
+            mAboutTitle.setText("A propos de moi");
 
-        toolBarLayout.setTitle(neighbour.getName());
-        mProfilName2.setText(neighbour.getName());
-        mLocalisationContact.setText(neighbour.getAddress());
-        mNumberContact.setText(neighbour.getPhoneNumber());
-        mAboutInfo.setText(neighbour.getAboutMe());
-        mSocialMedia.setText("www.facebook/" + neighbour.getName());
-        mAboutTitle.setText("A propos de moi");
-
-        if (neighbour.getFavorite()) {
-            mFavButton.setImageResource(R.drawable.ic_star_white_24dp);
-        } else {
-            mFavButton.setImageResource(R.drawable.ic_star_border_white_24dp);
-        }
-
-        mFavButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (neighbour.getFavorite()) {
-                    mFavButton.setImageResource(R.drawable.ic_star_border_white_24dp);
-                } else {
-                    mFavButton.setImageResource(R.drawable.ic_star_white_24dp);
-
-                }
-                neighbour.setFavorite(!neighbour.getFavorite());
-                mApiService.modifyNeighbour(neighbour);
+            if (neighbour.getFavorite()) {
+                mFavButton.setImageResource(R.drawable.ic_star_white_24dp);
+            } else {
+                mFavButton.setImageResource(R.drawable.ic_star_border_white_24dp);
             }
-        });
+
+            mFavButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (neighbour.getFavorite()) {
+                        mFavButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+                    } else {
+                        mFavButton.setImageResource(R.drawable.ic_star_white_24dp);
+
+                    }
+                    neighbour.setFavorite(!neighbour.getFavorite());
+                    mApiService.modifyNeighbour(neighbour);
+                }
+            });
+        }
     }
 
 }
