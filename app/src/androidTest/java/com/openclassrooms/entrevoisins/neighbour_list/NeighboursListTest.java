@@ -1,6 +1,7 @@
 
 package com.openclassrooms.entrevoisins.neighbour_list;
 
+import android.content.Intent;
 import android.support.design.snackbar.ContentViewCallback;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.ViewAssertion;
@@ -48,8 +49,12 @@ public class NeighboursListTest {
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityRule =
             new ActivityTestRule(ListNeighbourActivity.class);
-    public ActivityTestRule<MyNeighbourProfil> mNeighbourProfilRule =
-            new ActivityTestRule<>(MyNeighbourProfil.class);
+
+    //public IntentsTestRule<ListNeighbourActivity> intentsTestRule =
+    //        new IntentsTestRule<>(ListNeighbourActivity.class);
+    //
+    //public IntentsTestRule<MyNeighbourProfil> mIntentsTestRule =
+    //       new IntentsTestRule<>(MyNeighbourProfil.class);
 
     @Before
     public void setUp() {
@@ -85,17 +90,24 @@ public class NeighboursListTest {
      * When we click an item, the neighbour detail is shown
      */
 
-    @Test
-    public void mNeighboursList_openNeighbourProfil() {
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform((RecyclerViewActions.actionOnItemAtPosition(1,click())));
-        assertThat(intent).hasCom;
+    //@Test
+    //public void mNeighboursList_openNeighbourProfil() {
+    //    onView(withId(R.id.item_list_name))
+    //            .perform(RecyclerViewActions.actionOnItemAtPosition(1,click()))
+    //            .check(matches(isDisplayed()));
+//
+    //    onData(withId(R.id.item_image))
+    //            .inAdapterView(withId(R.id.grid_adapter_id))
+    //            .atPosition(0)
+    //            .perform(click());
+
+
     //   onView(ViewMatchers.withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(1), click());
-        onView(withId(R.id.list_neighbours))
-                .perform(click())
-                .check((ViewAssertion) isDisplayed());
-    }
+    //   onView(withId(R.id.list_neighbours))
+    //           .perform(click())
+    //           .check((ViewAssertion) isDisplayed());
+    //}
+
 
 
   //  @Test

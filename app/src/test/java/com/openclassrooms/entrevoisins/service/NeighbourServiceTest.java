@@ -49,4 +49,6 @@ public class NeighbourServiceTest {
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
 
+
+
 }
