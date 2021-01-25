@@ -43,6 +43,7 @@ public class NeighbourServiceTest {
 
     // Must add something to test the list after deleting one person.
     // Like List<Neighbour> equals 0 after adding one and deleting it.
+
     @Test
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
@@ -51,9 +52,17 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void addNeighbourToFavoriteWithSuccess() {
-        Neighbour neighbourToAddFavoris = service.getNeighbours().get(0);
-        service.getFavorisNeighbours(neighbourToAddFavoris);
-        assertTrue(service.getFavorisNeighbours().contains(neighbourToAddFavoris));
+    public void getFavorisNeighbourWithSuccess() {
     }
+
+   @Test
+    public void addFavorisNeighbourWithSuccess() {
+
+   }
+
+   @Test
+    public void deleteFavorisNeighbourWithSucess() {
+        
+   }
+
 }
