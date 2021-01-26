@@ -102,15 +102,14 @@ public class NeighboursActivityTest {
         floatingActionButton.perform(click());
 
         // click sur le bouton back
-        ViewInteraction appCompatImageButton = onView(
-                allOf(withContentDescription("Revenir en haut de la page"),
+        ViewInteraction appCompatImageButton = onView   (
                         childAtPosition(
                                 allOf(withId(R.id.toolbar),
                                         childAtPosition(
                                                 allOf(withId(R.id.toolbarlayout), withContentDescription("Caroline")),
                                                 1)),
-                                0),
-                        isDisplayed()));
+                                0)
+                        );
         appCompatImageButton.perform(click());
 
         // on Recupère le tabView qui est lié au viewpager

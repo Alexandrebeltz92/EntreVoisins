@@ -1,15 +1,11 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,14 +14,6 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
-
-import org.w3c.dom.Text;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import butterknife.OnClick;
 
 public class MyNeighbourProfil extends AppCompatActivity {
 
@@ -77,7 +65,7 @@ public class MyNeighbourProfil extends AppCompatActivity {
             mSocialMedia.setText("www.facebook/" + neighbour.getName());
             mAboutTitle.setText("A propos de moi");
 
-            if (neighbour.getFavorite()) {
+            if (neighbour.isFavorite()) {
                 mFavButton.setImageResource(R.drawable.ic_star_white_24dp);
             } else {
                 mFavButton.setImageResource(R.drawable.ic_star_border_white_24dp);
@@ -86,13 +74,13 @@ public class MyNeighbourProfil extends AppCompatActivity {
             mFavButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (neighbour.getFavorite()) {
+                    if (neighbour.isFavorite()) {
                         mFavButton.setImageResource(R.drawable.ic_star_border_white_24dp);
                     } else {
                         mFavButton.setImageResource(R.drawable.ic_star_white_24dp);
 
                     }
-                    neighbour.setFavorite(!neighbour.getFavorite());
+                    neighbour.setFavorite(!neighbour.isFavorite());
                     mApiService.modifyNeighbour(neighbour);
                 }
             });

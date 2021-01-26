@@ -122,7 +122,7 @@ public class Neighbour implements Parcelable {
         this.aboutMe = aboutMe;
     }
 
-    public boolean getFavorite() {return favorite; }
+    public boolean isFavorite() {return favorite; }
 
     public void setFavorite(boolean favorite) { this.favorite = favorite; }
 

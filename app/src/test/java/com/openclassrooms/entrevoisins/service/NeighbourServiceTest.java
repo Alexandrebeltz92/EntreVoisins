@@ -1,9 +1,5 @@
 package com.openclassrooms.entrevoisins.service;
 
-import android.content.DialogInterface;
-import android.view.View;
-import android.widget.TextView;
-
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -14,8 +10,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
-import java.util.jar.Attributes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
@@ -41,9 +37,6 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
-    // Must add something to test the list after deleting one person.
-    // Like List<Neighbour> equals 0 after adding one and deleting it.
-
     @Test
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
@@ -53,16 +46,38 @@ public class NeighbourServiceTest {
 
     @Test
     public void getFavorisNeighbourWithSuccess() {
+        service.getFavorisNeighbours().clear();
+        for (int i = 0; i<4; i++ ) {
+            Neighbour neighbour = service.getNeighbours().get(i);
+            if (!neighbour.isFavorite()) {
+                neighbour.setFavorite(true);
+            }
+        }
+        assertEquals(service.getFavorisNeighbours().size(), 4);
     }
 
    @Test
     public void addFavorisNeighbourWithSuccess() {
-
+        service.getFavorisNeighbours().clear();
+       Neighbour neighbour = service.getNeighbours().get(5);
+       neighbour.setFavorite(true);
+       assertEquals(service.getFavorisNeighbours().size(), 1);
+       assertEquals(neighbour, service.getFavorisNeighbours().get(0));
    }
 
    @Test
     public void deleteFavorisNeighbourWithSucess() {
-        
+        service.getFavorisNeighbours().clear();
+       for (int i = 0; i<6; i++ ) {
+           Neighbour neighbour = service.getNeighbours().get(i);
+           if (!neighbour.isFavorite()) {
+               neighbour.setFavorite(true);
+           }
+       }
+       Neighbour n = service.getFavorisNeighbours().get(3);
+       n.setFavorite(false);
+       assertFalse(service.getFavorisNeighbours().contains(n));
+       assertEquals(service.getFavorisNeighbours().size(), 5);
    }
 
 }

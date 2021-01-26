@@ -49,7 +49,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     public List<Neighbour> getFavorisNeighbours() {
         List<Neighbour> favoriteList = new ArrayList<>();
         for( Neighbour neighbour : neighbours){
-            if ( neighbour.getFavorite())
+            if ( neighbour.isFavorite())
                 favoriteList.add(neighbour);
         }
         return favoriteList;
