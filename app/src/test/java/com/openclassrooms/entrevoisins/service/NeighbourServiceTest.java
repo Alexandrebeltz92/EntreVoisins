@@ -80,9 +80,11 @@ public class NeighbourServiceTest {
        assertEquals(service.getFavorisNeighbours().size(), 5);
    }
 
-   @Test
-    public void addNeighbourWithSucess() {
-
-   }
+    @Test
+    public void createNeighbourWithSuccess() {
+        Neighbour neighbourToCreate = new Neighbour( (long) service.getNeighbours().size(), "Mon voisin Test", "https://i.pravatar.cc/150", "", "", "" );
+        service.createNeighbour( neighbourToCreate );
+        assertTrue( service.getNeighbours().contains( neighbourToCreate ) );
+    }
 
 }
