@@ -80,4 +80,9 @@ public class NeighbourServiceTest {
        assertEquals(service.getFavorisNeighbours().size(), 5);
    }
 
+   @Test
+    public void addNeighbourWithSucess() {
+
+   }
+
 }

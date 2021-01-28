@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.neighbours_activity;
 
+import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourGenerator;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourProfil;
 
@@ -36,6 +38,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withParent;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.equalTo;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -72,11 +75,13 @@ public class NeighboursActivityTest {
     @Test
     public void checkNameNeighbourOpenningTest() {
 
+        //We take the view
         ViewInteraction recyclerView =
                 onView(allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60)));
+        //We click on the first neighbour
         recyclerView
                 .perform(actionOnItemAtPosition(0, click()));
-
+        //We check that the name is display and match the name of the neighbour
         ViewInteraction textView =
                 onView( allOf(withId(R.id.profil_name_2), withText("Caroline"), isDisplayed()));
         textView
@@ -127,7 +132,35 @@ public class NeighboursActivityTest {
                 allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60),
                         withParent(withId(R.id.container))));
         recyclerView2.check(withItemCount(1));
+    }
 
+    /**
+     * We make sure the view is displayed
+     */
+
+    @Test
+    public void checkIfRecyclerViewIsDisplay() {
+
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60),
+                        withParent(withId(R.id.container))));
+        recyclerView.perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.my_neighbour_profil)).check(matches(isDisplayed()));
+    }
+
+    /**
+     * We make sure the profil picture is display
+     */
+    @Test
+    public void checkPictureProfilNeighbourTest() {
+
+        ViewInteraction recyclerView =
+                onView(allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60)));
+        recyclerView
+                .perform(actionOnItemAtPosition(0, click()));
+
+        onView(withId(R.id.profil_picture)).check(matches(isDisplayed()));
     }
 
     private static Matcher<View> childAtPosition(
