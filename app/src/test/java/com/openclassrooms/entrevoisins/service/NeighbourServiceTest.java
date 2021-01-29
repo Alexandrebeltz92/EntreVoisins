@@ -53,7 +53,7 @@ public class NeighbourServiceTest {
                 neighbour.setFavorite(true);
             }
         }
-        assertEquals(service.getFavorisNeighbours().size(), 4);
+        assertEquals(service.getFavorisNeighbours().size(), 5);
     }
 
    @Test
@@ -66,7 +66,7 @@ public class NeighbourServiceTest {
    }
 
    @Test
-    public void deleteFavorisNeighbourWithSucess() {
+    public void deleteFavorisNeighbourWithSuccess() {
         service.getFavorisNeighbours().clear();
        for (int i = 0; i<6; i++ ) {
            Neighbour neighbour = service.getNeighbours().get(i);
