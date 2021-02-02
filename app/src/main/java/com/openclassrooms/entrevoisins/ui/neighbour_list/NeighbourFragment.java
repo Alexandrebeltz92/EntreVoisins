@@ -41,6 +41,7 @@ public class NeighbourFragment extends Fragment {
 
     /**
      * Create and return a new instance
+     *
      * @return @{@link NeighbourFragment}
      */
     public static NeighbourFragment newInstance(boolean isFavoris) {
@@ -78,7 +79,7 @@ public class NeighbourFragment extends Fragment {
     private void initList() {
         if (mIsfavoris) mNeighbours = mApiService.getFavorisNeighbours();
         else mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, mIsfavoris));
     }
 
     @Override
@@ -101,6 +102,7 @@ public class NeighbourFragment extends Fragment {
 
     /**
      * Fired if the user clicks on a delete button
+     *
      * @param event
      */
     @Subscribe

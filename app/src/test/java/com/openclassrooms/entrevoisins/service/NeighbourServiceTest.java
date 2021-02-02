@@ -47,7 +47,7 @@ public class NeighbourServiceTest {
     @Test
     public void getFavorisNeighbourWithSuccess() {
         service.getFavorisNeighbours().clear();
-        for (int i = 0; i<4; i++ ) {
+        for (int i = 0; i < 4; i++) {
             Neighbour neighbour = service.getNeighbours().get(i);
             if (!neighbour.isFavorite()) {
                 neighbour.setFavorite(true);
@@ -56,35 +56,35 @@ public class NeighbourServiceTest {
         assertEquals(service.getFavorisNeighbours().size(), 5);
     }
 
-   @Test
+    @Test
     public void addFavorisNeighbourWithSuccess() {
         service.getFavorisNeighbours().clear();
-       Neighbour neighbour = service.getNeighbours().get(5);
-       neighbour.setFavorite(true);
-       assertEquals(service.getFavorisNeighbours().size(), 1);
-       assertEquals(neighbour, service.getFavorisNeighbours().get(0));
-   }
+        Neighbour neighbour = service.getNeighbours().get(5);
+        neighbour.setFavorite(true);
+        assertEquals(service.getFavorisNeighbours().size(), 1);
+        assertEquals(neighbour, service.getFavorisNeighbours().get(0));
+    }
 
-   @Test
+    @Test
     public void deleteFavorisNeighbourWithSuccess() {
         service.getFavorisNeighbours().clear();
-       for (int i = 0; i<6; i++ ) {
-           Neighbour neighbour = service.getNeighbours().get(i);
-           if (!neighbour.isFavorite()) {
-               neighbour.setFavorite(true);
-           }
-       }
-       Neighbour n = service.getFavorisNeighbours().get(3);
-       n.setFavorite(false);
-       assertFalse(service.getFavorisNeighbours().contains(n));
-       assertEquals(service.getFavorisNeighbours().size(), 5);
-   }
+        for (int i = 0; i < 6; i++) {
+            Neighbour neighbour = service.getNeighbours().get(i);
+            if (!neighbour.isFavorite()) {
+                neighbour.setFavorite(true);
+            }
+        }
+        Neighbour n = service.getFavorisNeighbours().get(3);
+        n.setFavorite(false);
+        assertFalse(service.getFavorisNeighbours().contains(n));
+        assertEquals(service.getFavorisNeighbours().size(), 5);
+    }
 
     @Test
     public void createNeighbourWithSuccess() {
-        Neighbour neighbourToCreate = new Neighbour( (long) service.getNeighbours().size(), "Mon voisin Test", "https://i.pravatar.cc/150", "", "", "" );
-        service.createNeighbour( neighbourToCreate );
-        assertTrue( service.getNeighbours().contains( neighbourToCreate ) );
+        Neighbour neighbourToCreate = new Neighbour((long) service.getNeighbours().size(), "Mon voisin Test", "https://i.pravatar.cc/150", "", "", "");
+        service.createNeighbour(neighbourToCreate);
+        assertTrue(service.getNeighbours().contains(neighbourToCreate));
     }
 
 }

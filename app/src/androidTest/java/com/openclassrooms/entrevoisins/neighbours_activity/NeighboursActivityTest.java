@@ -26,6 +26,7 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static android.support.test.espresso.intent.Intents.intended;
@@ -38,6 +39,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withParent;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 
 @LargeTest
@@ -64,13 +66,13 @@ public class NeighboursActivityTest {
                 onView(allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60)));
 
         recyclerView
-                .perform(RecyclerViewActions.actionOnItemAtPosition(0,click()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         intended(hasComponent(mNeighbourTestRule.getActivity().getComponentName()));
     }
 
     /**
-    * When we click on the neighbour, we check that the name of the neighbour is display on the neighbour detail.
-    */
+     * When we click on the neighbour, we check that the name of the neighbour is display on the neighbour detail.
+     */
 
     @Test
     public void checkNameNeighbourOpenningTest() {
@@ -83,7 +85,7 @@ public class NeighboursActivityTest {
                 .perform(actionOnItemAtPosition(0, click()));
         //We check that the name is display and match the name of the neighbour
         ViewInteraction textView =
-                onView( allOf(withId(R.id.profil_name_2), withText("Caroline"), isDisplayed()));
+                onView(allOf(withId(R.id.profil_name_2), withText("Caroline"), isDisplayed()));
         textView
                 .check(matches(withText("Caroline")));
     }
@@ -103,18 +105,18 @@ public class NeighboursActivityTest {
         // on click sur le bouton favoris pour mettre notre utilisateur comme favoris
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.fav_button),
-                        childAtPosition( childAtPosition(withId(android.R.id.content), 0), 1), isDisplayed()));
+                        childAtPosition(childAtPosition(withId(android.R.id.content), 0), 1), isDisplayed()));
         floatingActionButton.perform(click());
 
         // click sur le bouton back
-        ViewInteraction appCompatImageButton = onView   (
-                        childAtPosition(
-                                allOf(withId(R.id.toolbar),
-                                        childAtPosition(
-                                                allOf(withId(R.id.toolbarlayout), withContentDescription("Caroline")),
-                                                1)),
-                                0)
-                        );
+        ViewInteraction appCompatImageButton = onView(
+                childAtPosition(
+                        allOf(withId(R.id.toolbar),
+                                childAtPosition(
+                                        allOf(withId(R.id.toolbarlayout), withContentDescription("Caroline")),
+                                        1)),
+                        0)
+        );
         appCompatImageButton.perform(click());
 
         // on Recupère le tabView qui est lié au viewpager
@@ -161,6 +163,59 @@ public class NeighboursActivityTest {
                 .perform(actionOnItemAtPosition(0, click()));
 
         onView(withId(R.id.profil_picture)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void checkButtonDeleteIsGone() {
+        ViewInteraction recyclerView4 = onView(
+                allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60),
+                        withParent(withId(R.id.container))));
+        recyclerView4.perform(actionOnItemAtPosition(0, click()));
+
+        // on click sur le bouton favoris pour mettre notre utilisateur comme favoris
+        ViewInteraction floatingActionButton1 = onView(
+                allOf(withId(R.id.fav_button),
+                        childAtPosition(childAtPosition(withId(android.R.id.content), 0), 1), isDisplayed()));
+        floatingActionButton1.perform(click());
+
+        // click sur le bouton back
+        ViewInteraction appCompatImageButton1 = onView(
+                childAtPosition(
+                        allOf(withId(R.id.toolbar),
+                                childAtPosition(
+                                        allOf(withId(R.id.toolbarlayout), withContentDescription("Caroline")),
+                                        1)),
+                        0)
+        );
+        appCompatImageButton1.perform(click());
+
+        // on Recupère le tabView qui est lié au viewpager
+        ViewInteraction tabView = onView(
+                allOf(withContentDescription("Favorites"), isDisplayingAtLeast(60)));
+        tabView.perform(click());
+
+        // on change d'onglet pour se mettre sur l'onglet favorites
+        ViewInteraction viewPager = onView(
+                allOf(withId(R.id.container), isDisplayingAtLeast(60)));
+        viewPager.perform(swipeLeft());
+
+        // on verifie que le bouton delete n'existe pas
+        ViewInteraction imageButton1 = onView(
+                allOf(withId(R.id.item_list_delete_button),
+                        withParent(withParent(withId(R.id.list_neighbours))),
+                        isDisplayed()));
+        imageButton1.check(doesNotExist());
+
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.list_neighbours), isDisplayingAtLeast(60),
+                        withParent(withId(R.id.container))));
+        recyclerView.perform(actionOnItemAtPosition(0, click()));
+
+        ViewInteraction floatingActionButton2 = onView(
+                allOf(withId(R.id.fav_button),
+                        childAtPosition(childAtPosition(withId(android.R.id.content), 0), 1), isDisplayed()));
+        floatingActionButton1.perform(click());
+
     }
 
     private static Matcher<View> childAtPosition(

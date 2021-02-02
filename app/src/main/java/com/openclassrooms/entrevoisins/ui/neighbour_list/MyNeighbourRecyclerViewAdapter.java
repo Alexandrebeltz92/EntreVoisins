@@ -26,9 +26,11 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
+    private final Boolean mIsFavoris;
 
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, Boolean isfavoris) {
         mNeighbours = items;
+        mIsFavoris = isfavoris;
     }
 
     @Override
@@ -42,17 +44,23 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mNeighbours.get(position);
         holder.mNeighbourName.setText(neighbour.getName());
+        if (mIsFavoris) {
+            holder.mDeleteButton.setVisibility(View.GONE);
+        } else {
+            holder.mDeleteButton.setVisibility(View.VISIBLE);
+        }
         Glide.with(holder.mNeighbourAvatar.getContext())
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent neighbourProfilIntent = new Intent(v.getContext(),MyNeighbourProfil.class);
+                Intent neighbourProfilIntent = new Intent(v.getContext(), MyNeighbourProfil.class);
                 neighbourProfilIntent.putExtra("myNeighbour", neighbour);
                 ((Activity) v.getContext()).startActivity(neighbourProfilIntent);
-                }
+            }
         });
 
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
